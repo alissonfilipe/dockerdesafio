@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulário de Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form onsubmit="return validarSenha()">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Entrar">
+    </form>
+    <script>
+      function validarSenha() {
+        var senha = document.getElementById("password").value;
+        // A senha deve ter pelo menos 8 caracteres
+        if (senha.length < 8) {
+          alert("A senha deve ter pelo menos 8 caracteres");
+          return false;
+        }
+        // A senha deve conter pelo menos uma letra maiúscula
+        if (!/[A-Z]/.test(senha)) {
+          alert("A senha deve conter pelo menos uma letra maiúscula");
+          return false;
+        }
+        // A senha deve conter pelo menos um número
+        if (!/[0-9]/.test(senha)) {
+          alert("A senha deve conter pelo menos um número");
+          return false;
+        }
+        // A senha deve conter pelo menos um caractere especial
+        if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(senha)) {
+          alert("A senha deve conter pelo menos um caractere especial");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

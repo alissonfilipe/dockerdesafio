@@ -1,0 +1,28 @@
+Microsoft Windows [versão 10.0.22621.1702]
+(c) Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Alifd>docker container ls -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS                         PORTS     NAMES
+88eb9e6ec269   mysql     "docker-entrypoint.s…"   2 hours ago   Exited (0) About an hour ago             meu-mysql
+
+C:\Users\Alifd>docker run --name rede -p 80:80 -d nginx
+fe1376f0ddc4f2d9a823e5126bc66fe81a362bfe13865a26232a74ee6b0a4060
+
+C:\Users\Alifd>docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                NAMES
+fe1376f0ddc4   nginx     "/docker-entrypoint.…"   50 seconds ago   Up 48 seconds   0.0.0.0:80->80/tcp   rede
+
+C:\Users\Alifd>docker container start meu-mysql
+meu-mysql
+
+C:\Users\Alifd>docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS              PORTS                 NAMES
+fe1376f0ddc4   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp    rede
+88eb9e6ec269   mysql     "docker-entrypoint.s…"   2 hours ago          Up 11 seconds       3306/tcp, 33060/tcp   meu-mysql
+
+C:\Users\Alifd>docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS              PORTS                 NAMES
+fe1376f0ddc4   nginx     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes        0.0.0.0:80->80/tcp    rede
+88eb9e6ec269   mysql     "docker-entrypoint.s…"   2 hours ago     Up About a minute   3306/tcp, 33060/tcp   meu-mysql
+
+C:\Users\Alifd>

@@ -24,7 +24,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile-php
+      dockerfile: index.html
     restart: always
     volumes:
       - ./src:/var/www/html
